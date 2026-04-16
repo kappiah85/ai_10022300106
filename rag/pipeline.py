@@ -33,7 +33,9 @@ if not os.path.exists("embeddings/faiss.index"):
 index, chunks = load_index()
 print("Pipeline ready.")
 # Anthropic client
-client = anthropic.Anthropic(api_key=os.getenv("ANTHROPIC_API_KEY"))
+import streamlit as st
+api_key = os.getenv("ANTHROPIC_API_KEY") or st.secrets.get("ANTHROPIC_API_KEY")
+client = anthropic.Anthropic(api_key=api_key)
 
 # Conversation memory (innovation - Part G)
 conversation_history = []
