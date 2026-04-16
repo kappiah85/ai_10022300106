@@ -20,9 +20,18 @@ from rag.prompt import build_prompt
 
 # Load index once at startup
 print("Loading index...")
+import os
+if not os.path.exists("embeddings/faiss.index"):
+    print("Index not found, rebuilding...")
+    from rag.data_loader import load_data
+    from rag.chunker import chunk_all
+    from rag.embedder import build_index
+    csv_text, pdf_text = load_data()
+    chunks_data = chunk_all(csv_text, pdf_text)
+    build_index(chunks_data)
+
 index, chunks = load_index()
 print("Pipeline ready.")
-
 # Anthropic client
 client = anthropic.Anthropic(api_key=os.getenv("ANTHROPIC_API_KEY"))
 
