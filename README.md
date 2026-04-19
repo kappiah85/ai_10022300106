@@ -39,7 +39,7 @@ User Query -> Hybrid Search (Vector + BM25) -> Context Selection -> Prompt -> Cl
 
 ## Sample Questions
 - Nana Akufo-Addo votes in Ashanti region
-- GH¢ allocation sanitary pads 2025
+- GHï¿½ allocation sanitary pads 2025
 - capitation grant 2025 budget
 - NPP votes Bono region 2020
 
