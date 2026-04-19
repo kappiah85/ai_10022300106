@@ -10,6 +10,7 @@ from dotenv import load_dotenv
 import anthropic
 
 load_dotenv()
+import streamlit as st
 
 import sys
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -33,8 +34,10 @@ if not os.path.exists("embeddings/faiss.index"):
 index, chunks = load_index()
 print("Pipeline ready.")
 # Anthropic client
-import streamlit as st
-api_key = os.getenv("ANTHROPIC_API_KEY") or st.secrets.get("ANTHROPIC_API_KEY")
+try:
+    api_key = st.secrets["ANTHROPIC_API_KEY"]
+except:
+    api_key = os.getenv("ANTHROPIC_API_KEY")
 client = anthropic.Anthropic(api_key=api_key)
 
 # Conversation memory (innovation - Part G)

@@ -4,7 +4,7 @@
 **Index Number:** 10022300106
 **Course:** CS4241 - Introduction to Artificial Intelligence
 **Lecturer:** Godwin N. Danso
-**Date:** 17th April 2026
+**Date:** 19th April 2026
 
 ## Live Demo
 [Click here to use the chatbot](https://ai10022300106-kvexvt6aavkquax5nkmkcb.streamlit.app)
